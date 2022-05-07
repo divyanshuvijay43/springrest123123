@@ -12,6 +12,7 @@
 	<artifactId>springrest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springrest</name>
+	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -45,6 +46,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>backend-springboot</finalName>
 	</build>
-
 </project>
