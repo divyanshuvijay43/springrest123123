@@ -26,6 +26,9 @@ public class TravelDetails {
     @Column(nullable = false)
     private Date travelDate;
 
+    @Column(nullable = true)
+    private Integer studentId;
+
     @Column(nullable = false)
     private Integer journeyType;
     //journeyType will have two values '1' for arrival & '2' for departure
@@ -35,13 +38,23 @@ public class TravelDetails {
 
     }
 
-    public TravelDetails(String name, String rollno, String branch, String programName, Date travelDate, Integer journeyType) {
+    public TravelDetails(Long id, String name, String rollno, String branch, String programName, Date travelDate, Integer studentId, Integer journeyType) {
+        this.id = id;
         this.name = name;
         this.rollno = rollno;
         this.branch = branch;
         this.programName = programName;
         this.travelDate = travelDate;
+        this.studentId = studentId;
         this.journeyType = journeyType;
+    }
+
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
 
     public Long getId() {

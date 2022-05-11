@@ -12,33 +12,45 @@ public class StudentRegistration {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String rollno;
 
     @Column(nullable = false)
     private String emailId;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String branch;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String programName;
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private Integer role; // 1 for student 2 for warden
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
 
     public StudentRegistration()
     {
 
     }
 
-    public StudentRegistration(String name, String rollno, String emailId, String branch, String programName,String password) {
+    public StudentRegistration(String name, String rollno, String emailId, String branch, String programName,String password,Integer role) {
         this.name = name;
         this.rollno = rollno;
         this.emailId = emailId;
         this.branch = branch;
         this.programName = programName;
         this.password = password;
+        this.role = role;
     }
 
     public Integer getId() {

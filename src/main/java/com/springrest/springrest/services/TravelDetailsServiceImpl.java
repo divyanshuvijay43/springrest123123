@@ -15,13 +15,18 @@ public class TravelDetailsServiceImpl implements TravelDetailsService {
 
     public TravelDetails addDetails(TravelDetails details)
     {
+        List<Long> res = travelDetDao.findIdByRoll(details.getRollno());
+        if(!res.isEmpty())
+        {
+            details.setId(res.get(0));
+        }
         travelDetDao.save(details);
         return details;
     }
 
     @Override
     public List<TravelDetails> getAllDetails() {
-        return travelDetDao.findAll();
+        return travelDetDao.findAllDetails();
     }
 
 

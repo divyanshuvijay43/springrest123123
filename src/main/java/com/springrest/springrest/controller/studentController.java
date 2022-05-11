@@ -3,6 +3,7 @@ package com.springrest.springrest.controller;
 import com.springrest.springrest.entitites.LoginRequest;
 import com.springrest.springrest.entitites.StudentRegistration;
 import com.springrest.springrest.entitites.TravelDetails;
+import com.springrest.springrest.entitites.WardenRegistration;
 import com.springrest.springrest.services.LoginService;
 import com.springrest.springrest.services.TravelDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,15 @@ public class studentController {
     @PostMapping("/register")
     public Integer registerStudent(@RequestBody StudentRegistration Student)
     {
+        Student.setRole(1);
         return loginservice.registerStudent(Student);
+    }
+
+    @PostMapping("/registerWarden")
+    public Integer registerWarden(@RequestBody WardenRegistration warden)
+    {
+        warden.setRole(2);
+        return loginservice.registerWarden(warden);
     }
 
     @PostMapping("/login")
@@ -37,6 +46,18 @@ public class studentController {
         {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @GetMapping("/getInfo/{email}")
+    public StudentRegistration getInfoByEmail(@PathVariable String email)
+    {
+            return loginservice.getStudentInfoByEmail(email);
+    }
+
+    @GetMapping("/getRole/{id}")
+    public Integer getRoleById(@PathVariable Integer id)
+    {
+        return loginservice.getRoleById(id);
     }
 
 }
