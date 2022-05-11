@@ -9,4 +9,8 @@ public interface TravelDetailsService {
 
     public List<TravelDetails> getAllDetails();
 
+    public String getEmailByRollNo(String rollno);
+
+    public boolean hasTravelled(String email);
+
 }

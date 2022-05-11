@@ -14,4 +14,5 @@ public interface travelDetailsDao extends JpaRepository<TravelDetails,Long> {
     //just to get info that if this student has added info about earlier travels so that we can update it.
     @Query(value = "SELECT td.id FROM TravelDetails td where td.rollno =?1",nativeQuery = true)
     List<Long> findIdByRoll(String rollno);
+
 }

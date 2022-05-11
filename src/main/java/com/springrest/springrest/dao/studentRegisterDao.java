@@ -18,4 +18,7 @@ public interface studentRegisterDao extends JpaRepository<StudentRegistration,In
 
     @Query(value = "SELECT st.role FROM StudentRegistration st where st.id = ?1",nativeQuery = true)
     Integer findRoleById(Integer id);
+
+    @Query(value="SELECT st.emailId FROM StudentRegistration st where st.rollno = ?1",nativeQuery = true)
+    List<String> findEmailByRollno(String rollno);
 }
